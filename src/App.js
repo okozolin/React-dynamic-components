@@ -46,7 +46,6 @@ function App() {
           console.log("items", items)
           console.log("gridText",gridText)
           setItems(gridText)
-          debugger
           // setGridText('')
       }
       return (
