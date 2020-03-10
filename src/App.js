@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import InputElm from "./components/inputtext.component";
 import SelectElm from "./components/select.component";
 import './App.css';
+import CreateComponents from "./components";
 
 export const ItemsContext = React.createContext();
 
@@ -11,7 +12,7 @@ function App() {
     const uiGrid = `
 2;1;gender;SELECT;Male,Female
 1;1;First Name;TEXT_INPUT;Enter your first name
-2;2;marital status;SELECT;Single,MAried,Divorced
+2;2;marital status;SELECT;Single,Maried,Divorced
 1;2;Last Name;TEXT_INPUT;Enter your last name
   `
     const [uiGridText, setUiGridText] = useState(uiGrid)
@@ -85,8 +86,9 @@ function App() {
           </div>
           {parseElements(uiGridText)}
           <div id="elements_container">
-              <InputElm label='first name' value='Enter your first name'/>
-              <SelectElm label='Gender' value='Male,Female'/>
+              {elements.map(block => CreateComponents(block))}
+              {/*<InputElm label='first name' value='Enter your first name'/>*/}
+              {/*<SelectElm label='Gender' value='Male,Female'/>*/}
           </div>
       </div>
   );
