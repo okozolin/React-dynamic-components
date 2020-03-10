@@ -13,9 +13,11 @@ function App() {
 1;1;First Name;TEXT_INPUT;Enter your first name
 2;2;marital status;SELECT;Single,Maried,Divorced
 1;2;Last Name;TEXT_INPUT;Enter your last name
+1;3;Last Name;TEXT_INPUT;Enter your last name
   `
     const [uiGridText, setUiGridText] = useState(uiGrid)
     let elements = parseElementsFrom(uiGridText);
+    const maxCol = elements.reduce((prev, current) => (prev.col > current.col) ? prev : current)
     console.log('Rendering App')
   return (
       <div className="App">
@@ -26,7 +28,7 @@ function App() {
               </ItemsContext.Provider>
           </div>
           <div id="elements_container">
-              <GridGenerator cols={2}>
+              <GridGenerator cols={maxCol.col}>
                   {elements.map(block => CreateComponents(block))}
               </GridGenerator>
           </div>

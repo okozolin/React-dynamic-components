@@ -7,10 +7,10 @@ const GridGenerator = ({ cols, children }) => {
     const rows = chunk(React.Children.toArray(children), cols)
     return (
         <Grid>
-            {rows.map((cols) => (
-                <Row>
+            {rows.map((cols,i) => (
+                <Row key={i}>
                     {cols.map((col) => (
-                        <Col sm={12} md={colWidth}>
+                        <Col sm={12} md={colWidth} key={col.key}>
                             {col}
                         </Col>
                     ))}
