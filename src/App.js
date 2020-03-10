@@ -19,13 +19,17 @@ function App() {
 
     const parseElements = (uiGrid) => {
         //remove any white spaces at the start and split to rows
-        const elemArr = uiGrid.trim().split('\n')
+        const elemArr =
+            uiGrid.replace(/^\s*$(?:\r\n?|\n)/gm,'')
+            .trim()
+            .split('\n')
         //split data in line
         for (const elm of elemArr ) {
           elements.push(elm.split(';'))
         }
+
         // sort the array by row (first element) in ascending order
-        elements.sort(function(a, b) {
+        elements.sort((a, b) => {
           return a[0] - b[0];
         });
 
