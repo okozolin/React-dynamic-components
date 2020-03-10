@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import CreateComponents from "./components";
 import {parseElementsFrom} from "./utils/formatData";
 import TextAreaElem from "./components/textarea.component";
+import GridGenerator from "./components/gridGenerator.component";
 import './App.css';
 
 export const ItemsContext = React.createContext();
@@ -25,8 +26,11 @@ function App() {
               </ItemsContext.Provider>
           </div>
           <div id="elements_container">
-              {elements.map(block => CreateComponents(block))}
+              <GridGenerator cols={2}>
+                  {elements.map(block => CreateComponents(block))}
+              </GridGenerator>
           </div>
+
       </div>
   );
 }

@@ -14,7 +14,6 @@ const SelectElm = React.memo(props => {
         }
     }, [])
 
-    console.log('rendering SELECT')
     return (
         <div>
             <label htmlFor="fselect">{label}</label>
