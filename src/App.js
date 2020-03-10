@@ -42,7 +42,7 @@ function App() {
                 value: block[4]
             }
         })
-        console.log("elements", elements)
+        // console.log("elements", elements)
     }
 
     // UI text
@@ -60,11 +60,13 @@ function App() {
 
       const handleGridTextChange = (e) => {
           console.log("I was cliked")
-          console.log("items", items)
-          console.log("gridText",gridText)
+          // console.log("items", items)
+          // console.log("gridText",gridText)
           setItems(gridText)
           // setGridText('')
       }
+      console.log('rendering TEXT_AREA')
+
       return (
           <div>
               <label htmlFor="ftext">{ label }</label>
@@ -80,6 +82,7 @@ function App() {
   })
   // ---------------------------------------------
 
+    console.log('Rendering App')
   return (
       <div className="App">
         Hello Orit
@@ -91,8 +94,6 @@ function App() {
           {parseElements(uiGridText)}
           <div id="elements_container">
               {elements.map(block => CreateComponents(block))}
-              {/*<InputElm label='first name' value='Enter your first name'/>*/}
-              {/*<SelectElm label='Gender' value='Male,Female'/>*/}
           </div>
       </div>
   );
