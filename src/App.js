@@ -1,4 +1,6 @@
 import React, {useContext, useState} from 'react';
+import InputElm from "./components/inputtext.component";
+import SelectElm from "./components/select.component";
 import './App.css';
 
 export const ItemsContext = React.createContext();
@@ -17,6 +19,7 @@ function App() {
     const parseElements = (uiGrid) => {
         //remove any white spaces at the start and split to rows
         const elemArr = uiGrid.trim().split('\n')
+        //split data in line
         for (const elm of elemArr ) {
           elements.push(elm.split(';'))
         }
@@ -24,13 +27,22 @@ function App() {
         elements.sort(function(a, b) {
           return a[0] - b[0];
         });
+
+        elements = elements.map(block => {
+            return {
+                row: +block[0],
+                col: +block[1],
+                label: block[2],
+                type: block[3],
+                value: block[4]
+            }
+        })
         console.log("elements", elements)
     }
 
-    // Elements Components
+    // UI text
     // ---------------------------------
     //
-    // Text Area element component
   const TextAreaElem = (props => {
       const {label} = props
       // used to pass state from child to parent  - pass UI text instructions
@@ -61,35 +73,6 @@ function App() {
           </div>
       )
   })
-
-  // Input element component
-  const InputElm = (props) => {
-    const {label, value} = props
-    return (
-        <div>
-          <label htmlFor="fname">{label}</label>
-          <input type="text" id="fname" name="fname" placeholder={value}/><br></br>
-        </div>
-    )
-  }
-
-  // Select element component
-  const SelectElm = (props) => {
-    const {label, value} = props
-    const selectOptions = value.split(',')
-    console.log('selectOptions', selectOptions)
-
-    const MakeItem = (op)=> {
-      return <option key={op}>{op}</option>;
-    };
-
-    return (
-        <div>
-          <label htmlFor="fselect">{label}</label>
-          <select>{selectOptions.map(MakeItem)}</select>
-        </div>
-    )
-  }
   // ---------------------------------------------
 
   return (
