@@ -16,3 +16,10 @@ textarea {
   /*border: 1px solid black;*/
   margin: 40px 20px;
 }
+
+span {
+  margin: 10px 30px;
+  display: block;
+  font-weight: 600;
+  color: mediumvioletred;
+}

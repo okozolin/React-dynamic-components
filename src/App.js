@@ -13,7 +13,6 @@ function App() {
 1;1;First Name;TEXT_INPUT;Enter your first name
 2;2;marital status;SELECT;Single,Maried,Divorced
 1;2;Last Name;TEXT_INPUT;Enter your last name
-1;3;Last Name;TEXT_INPUT;Enter your last name
   `
     const [uiGridText, setUiGridText] = useState(uiGrid)
     let elements = parseElementsFrom(uiGridText);
@@ -21,14 +20,14 @@ function App() {
     console.log('Rendering App')
   return (
       <div className="App">
-        Hello Orit
+          <span>Hello Orit</span>
           <div id="grid_text_container">
               <ItemsContext.Provider value={[uiGridText, setUiGridText]}>
                   <TextAreaElem/>
               </ItemsContext.Provider>
           </div>
           <div id="elements_container">
-              <GridGenerator cols={maxCol.col}>
+              <GridGenerator cols={2}>
                   {elements.map(block => CreateComponents(block))}
               </GridGenerator>
           </div>
