@@ -1,14 +1,11 @@
 import React, {useContext, useState} from 'react';
-import InputElm from "./components/inputtext.component";
-import SelectElm from "./components/select.component";
-import './App.css';
 import CreateComponents from "./components";
+import './App.css';
 
 export const ItemsContext = React.createContext();
 
 function App() {
     let elements = [];
-
     const uiGrid = `
 2;1;gender;SELECT;Male,Female
 1;1;First Name;TEXT_INPUT;Enter your first name
@@ -42,7 +39,6 @@ function App() {
                 value: block[4]
             }
         })
-        // console.log("elements", elements)
     }
 
     // UI text
@@ -59,14 +55,9 @@ function App() {
       }
 
       const handleGridTextChange = (e) => {
-          console.log("I was cliked")
-          // console.log("items", items)
-          // console.log("gridText",gridText)
           setItems(gridText)
           // setGridText('')
       }
-      console.log('rendering TEXT_AREA')
-
       return (
           <div>
               <label htmlFor="ftext">{ label }</label>

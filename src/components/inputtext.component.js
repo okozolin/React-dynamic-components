@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 const InputElm = React.memo(props => {
     const {label, value} = props
-    console.log('rendering INPUT_TEXT')
-
+    useEffect(() => {
+        console.log('rendering INPUT_TEXT')
+        return () => {
+            console.log('INPUT_TEXT destroyed');
+        }
+    }, [])
     return (
         <div>
             <label htmlFor="fname">{label}</label>

@@ -1,13 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 const SelectElm = React.memo(props => {
     const {label, value} = props
     const selectOptions = value.split(',')
-    // console.log('selectOptions', selectOptions)
 
     const MakeItem = (op)=> {
         return <option key={op}>{op}</option>;
     };
+    useEffect(() => {
+        console.log('rendering SELECT')
+        return () => {
+            console.log('SELECT destroyed');
+        }
+    }, [])
+
     console.log('rendering SELECT')
     return (
         <div>
@@ -16,6 +22,5 @@ const SelectElm = React.memo(props => {
         </div>
     )
 })
-
 
 export default SelectElm;
